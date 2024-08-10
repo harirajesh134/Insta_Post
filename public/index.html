@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post to Instagram</title>
+</head>
+<body>
+    <h1>Post to Instagram</h1>
+    <form action="/post-instagram" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" required>
+        <input type="text" name="caption" placeholder="Enter a caption" required>
+        <input type="hidden" id="access_token" name="access_token">
+        <button type="submit">Upload Photo to Instagram</button>
+    </form>
+
+    <script>
+        // Extract the access token from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const accessToken = urlParams.get('access_token');
+
+        // Set the access token in the hidden input field
+        document.getElementById('access_token').value = accessToken;
+    </script>
+</body>
+</html>
